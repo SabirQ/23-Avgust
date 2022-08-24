@@ -55,8 +55,7 @@ Console.WriteLine(str);
 #region 4th Task
 //4) metinsel bir dizi içerisindeki değerlerde, verdiğiniz değer ile başlayan tüm elemanları ekrana yazdırınız.
 Console.WriteLine($"\n4th Task:");
-string[] spesific = Array.FindAll(names, x => x.Contains("Ar"));
-if (spesific.Length > 0) Array.ForEach(spesific, Console.WriteLine);
+Array.ForEach(Array.FindAll(names, x => x.StartsWith("Ar")), Console.WriteLine);
 #endregion
 
 #region 5th Task
@@ -64,11 +63,14 @@ if (spesific.Length > 0) Array.ForEach(spesific, Console.WriteLine);
 Console.WriteLine($"\n5th Task:");
 string twoArrayStr = names.Aggregate((x, y) => x + "," + y)+","+ names2.Aggregate((x, y) => x + "," + y);
 Console.WriteLine(twoArrayStr);
-//another way NOT OPTIMAL:
-//int[] combined = new int[numbers.Length + numbers2.Length];
-//Array.Copy(numbers, combined, numbers.Length);
-//Array.Copy(numbers2, 0, combined, numbers.Length, numbers2.Length);
-//Array.ForEach(combined,Console.WriteLine); 
+//another way:
+int[] combined = new int[numbers.Length + numbers2.Length];
+Array.Copy(numbers, combined, numbers.Length);
+Array.Copy(numbers2, 0, combined, numbers.Length, numbers2.Length);
+Array.ForEach(combined, Console.WriteLine);
+//3rd way:
+//Array.ForEach(numbers, Console.WriteLine);
+//Array.ForEach(numbers2, Console.WriteLine);
 #endregion
 
 #region 6th Task
